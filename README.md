@@ -18,7 +18,7 @@ A TF-IDF model was used as a baseline (as seen in riverside_books_chatbot_baseli
 Please note for this task: 
 Although the team primarily works with Node and Typescript, I chose Python because I am more familiar with it for machine learning and retrieval-based systems, and I wanted to prioritise building a strong and well-structured solution within the limited time. The task also allowed flexibility in language choices, with emphasis place on approach and reasoning than tooing. Streamlit was used for the optional frontend as it allows a lightweight web interface to be built with minimal overhead. 
 
-**Handling "No Good Answer" cases **
+**Handling "No Good Answer" cases**
 
 The system uses a similarity threshold mechanism. 
 
