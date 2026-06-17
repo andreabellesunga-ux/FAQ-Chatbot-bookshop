@@ -1,4 +1,5 @@
 **HOW TO RUN THE BOT**
+
 To run the chatbot, first install dependencies using pip install -r requirements.txt. The chatbot uses OpenAI embeddings for semantic retrieval, so an API key must be provided as an environment variable called OPENAI_API_KEY. This should not be hardcoded and is loaded securely at runtime by retriever.py.The key is excluded from version control via .gitignore. The system includes two interfaces: a command-line chatbot, which can be run using python riverside_books_chatbot.py, and a Streamlit web application, which can be launched with streamlit run chatbot_app.py. 
 
 **DESIGN DECISIONS, TRADEOFFS AND ASSUMPTIONS**
