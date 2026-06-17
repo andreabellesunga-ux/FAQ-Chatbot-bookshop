@@ -1,18 +1,21 @@
-#HOW TO RUN THE BOT
+**HOW TO RUN THE BOT**
 To run the chatbot, first install dependencies using pip install -r requirements.txt. The chatbot uses OpenAI embeddings for semantic retrieval, so an API key must be provided as an environment variable called OPENAI_API_KEY. This should not be hardcoded and is loaded securely at runtime by retriever.py.The key is excluded from version control via .gitignore. The system includes two interfaces: a command-line chatbot, which can be run using python riverside_books_chatbot.py, and a Streamlit web application, which can be launched with streamlit run chatbot_app.py. 
 
-#DESIGN DECISIONS, TRADEOFFS AND ASSUMPTIONS 
+**DESIGN DECISIONS, TRADEOFFS AND ASSUMPTIONS**
 
 **Matching approach chosen and why**
 
-I implemented a semantic retrieval approach using OpenAI's text-embedding-3-small model combined with cosine similarity. Each FAQ question is converted into a vector embedding. At query time: the user input is embedded, cosine similarity is computed against all stored FAQ embeddings and the most similar FAQ is returned
+I implemented a semantic retrieval approach using OpenAI's text-embedding-3-small model combined with cosine similarity. Each FAQ question is converted into a vector embedding. At query time: the user input is embedded, cosine similarity is computed against all stored FAQ embeddings and the most similar FAQ is returned.
 
 Why this approach?
 - It understands semantic meaning, not just keyword overlap 
 - It handles paraphrased questions or indirect questions well
 - It performs better than TF-IDF for natural language queries 
 
-A TF-IDF model was used as a baseline before upgrading to embeddings. 
+A TF-IDF model was used as a baseline (as seen in riverside_books_chatbot_baseline.py) before upgrading to embeddings. 
+
+Please note for this task: 
+Although the team primarily works with Node and Typescript, I chose Python because I am more familiar with it for machine learning and retrieval-based systems, and I wanted to prioritise building a strong and well-structured solution within the limited time. The task also allowed flexibility in language choices, with emphasis place on approach and reasoning than tooing. Streamlit was used for the optional frontend as it allows a lightweight web interface to be built with minimal overhead. 
 
 **Handling "No Good Answer" cases **
 
@@ -43,7 +46,7 @@ Reliability: there is no hallucination risk (retrieval only)
 
 **What I'd do differently with more time**
 
-With more time, I would improve the robustness and scalability of the retrieval system. One key improvement would be to introduce a proper vector database (such as FAISS) instead of performing linear similarity search, which would make retrieval more efficient as the FAQ dataset grows. I would also implement caching for embeddings to reduce repeated API calls and improve response time, especially for frequently asked questions. Also, I would build a small evaluation set to test different similarity thresholds more systematically rather than relying on manual tuning. This would help optimise the balance between accuracy and coverage. Finally, I would explore adding a lightweight reranking step or hybrid model (TF-IDF with embeddings) to improve retrieval accuracy in edge cases where semnatic similarity alone is not sufficient. 
+With more time, I would improve the robustness and scalability of the retrieval system. One key improvement would be to introduce a proper vector database (such as FAISS) instead of performing linear similarity search, which would make retrieval more efficient as the FAQ dataset grows. I would also implement caching for embeddings to reduce repeated API calls and improve response time, especially for frequently asked questions. Also, I would build a small evaluation set to test different similarity thresholds more systematically rather than relying on manual tuning. This would help optimise the balance between accuracy and coverage. Finally, I would explore adding a lightweight reranking step or hybrid model (TF-IDF with embeddings) to improve retrieval accuracy in edge cases where semantic similarity alone is not sufficient. 
 
 **Assumptions**
 
