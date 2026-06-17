@@ -1,3 +1,10 @@
+**Task structure**
+- faqs.json: source of truth for questions
+- riverside_books_chatbot_baseline.py: TF-IDF baseline for comparison
+- retriever.py: core semantic search logic
+- riverside_books_chatbot.py: CLI interface
+- chatbot_app.py: front end 
+
 **HOW TO RUN THE BOT**
 
 To run the chatbot, first install dependencies using pip install -r requirements.txt. The chatbot uses OpenAI embeddings for semantic retrieval, so an API key must be provided as an environment variable called OPENAI_API_KEY. This should not be hardcoded and is loaded securely at runtime by retriever.py.The key is excluded from version control via .gitignore. The system includes two interfaces: a command-line chatbot, which can be run using python riverside_books_chatbot.py, and a Streamlit web application, which can be launched with streamlit run chatbot_app.py. 
@@ -16,7 +23,7 @@ Why this approach?
 A TF-IDF model was used as a baseline (as seen in riverside_books_chatbot_baseline.py) before upgrading to embeddings. 
 
 Please note for this task: 
-Although the team primarily works with Node and Typescript, I chose Python because I am more familiar with it for machine learning and retrieval-based systems, and I wanted to prioritise building a strong and well-structured solution within the limited time. The task also allowed flexibility in language choices, with emphasis place on approach and reasoning than tooing. Streamlit was used for the optional frontend as it allows a lightweight web interface to be built with minimal overhead. 
+Although the team primarily works with Node.js and Typescript, I chose Python because I have deeper experience with embedding-based retrieval systems in this language. This allowed me to deliver a higher quality solution focused on semantic matching. Streamlit was used for the optional frontend as it enabled a lightweight web interface to be built with minimal overhead. 
 
 **Handling "No Good Answer" cases**
 
